@@ -3,7 +3,7 @@
     <name>d_opencart_patch</name>
     <code>d_opencart_patch</code>
     <description>Permission fixes in Opencart 3.x</description>
-    <version>3.1.13</version>
+    <version>3.1.14</version>
     <author>Dreamvention</author>
     <link>http://dreamvention.com</link>
     <file path="admin/controller/user/user_permission.php">
@@ -138,7 +138,7 @@
                         $image_info = @getimagesize(DIR_IMAGE . $filename);
                     }
                     
-                    if (isset($image_info) && $image_info) {
+                    if (!isset($image_info) || !$image_info) {
                         return $server . 'image/' . $filename;
                     }
                 } else {
@@ -162,7 +162,7 @@
                         $image_info = @getimagesize(DIR_IMAGE . $filename);
                     }
                     
-                    if (isset($image_info) && $image_info) {
+                    if (!isset($image_info) || !$image_info) {
                         return $server . 'image/' . $filename;
                     }
                 } else {
